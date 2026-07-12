@@ -4,6 +4,8 @@
 
 <p align="center">角色一致性 · 多模态参考 · 镜头因果 · 长视频接力 · 音画协同</p>
 
+<p align="center">作者：<a href="https://x.com/Isonlyonenice"><strong>秋水 Kero</strong></a></p>
+
 <p align="center">
   <a href="./SKILL.md">查看 Skill</a> ·
   <a href="./references/prompt-patterns.md">提示词模板</a> ·
