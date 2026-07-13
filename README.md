@@ -1,94 +1,40 @@
 <h1 align="center">KeRo-Seedance2.0</h1>
 
-<p align="center"><strong>先建立可执行的导演控制，再生成稳定、连贯、可剪辑的 Seedance 视频</strong></p>
+<p align="center"><strong>先给可复制成品，再按需展开制作控制</strong></p>
 
-<p align="center">角色一致性 · 多模态参考 · 镜头因果 · 长视频接力 · 音画协同</p>
+<p align="center">短提示词 · 视觉导演 · 多模态参考 · 分镜生产 · 结果诊断 · 连续性接力</p>
 
 <p align="center">作者：<a href="https://x.com/Isonlyonenice"><strong>秋水 Kero</strong></a></p>
-
-<p align="center">
-  <a href="./SKILL.md">查看 Skill</a> ·
-  <a href="./references/prompt-patterns.md">提示词模板</a> ·
-  <a href="./references/evaluation-rubric.md">故障诊断</a> ·
-  <a href="./references/sources-and-maintenance.md">来源与维护</a>
-</p>
 
 ---
 
 ## 这是什么
 
-KeRo-Seedance2.0 是一个面向 **Seedance 与即梦 AI 视频生产** 的 Codex Skill。
+KeRo-Seedance2.0 是一个面向 Seedance 2.0 与即梦 AI 的 Codex Skill。它把用户的创意、参考素材或失败结果转成可直接复制的提示词。
 
-它不把视频提示词理解成风格词堆叠，而是把视频任务拆成可控制的生产流程：
+这个 Skill 的设计重点是：
 
-```text
-创意、脚本或参考素材
-   ↓
-识别目标、时长、比例和交付平台
-   ↓
-给每张图片、视频、音频分配唯一职责
-   ↓
-建立角色、产品、场景与摄影连续性锚点
-   ↓
-设计动作因果、镜头路径、声音和稳定尾帧
-   ↓
-输出可复制提示词、负面约束与迭代顺序
-```
+- 简单任务不展开成创作简报、空表格和教程；
+- 专业知识必须服务于“如何产出一条好用提示词”；
+- 用可重复的前向测试案例判断每次修改有没有让 Skill 退化。
 
-当前公开仓库是 **精简核心版**：保留完整执行流程和常用参考，适合公开安装、快速调用和日常维护。
+默认先输出成品提示词，只有复杂任务才展示素材职责、分段接力或诊断依据。
 
-## 核心能力
+## 主要能力
 
-| 能力 | 主要职责 |
+| 任务 | 默认行为 |
 |---|---|
-| 需求解析 | 识别叙事目的、主体、时长、平台、声音和交付规格 |
-| 素材职责 | 为 `@图片N`、`@视频N`、`@音频N` 指定明确控制层 |
-| 角色一致性 | 分离身份、服装、道具、表演和镜头动作 |
-| 镜头设计 | 用景别、机位、运动、光学、构图和光色建立镜头 |
-| 动作因果 | 按起点、触发、发展、结果和尾帧组织动作 |
-| 长视频接力 | 为多段生成保存入点、出点和连续性锚点 |
-| 视频延长与编辑 | 明确保留项、替换项和不得改变项 |
-| 音画控制 | 规划对白、环境声、拟音、音乐和同步节点 |
-| 失败诊断 | 排查换脸、肢体融合、镜头失控、跳变和文字不可读 |
+| 文生视频 | 输出一条短而完整的成品提示词 |
+| 视觉开发 | 建立色彩、光线、构图、光学、材质、运动和情绪系统 |
+| 图片、视频、音频参考 | 只使用真实 `@引用`，为素材分配明确职责 |
+| 表演与多角色 | 隔离身份、空间和动作层，迁移需要的表演维度 |
+| 视频延长与编辑 | 分开“必须继承”和“只允许改变”的内容 |
+| 分镜与长项目 | 设计镜头功能、核心测试镜头、转场、接力和后期闭环 |
+| 电影视觉语法 | 从经典案例提取可观察摄影原则，不只堆片名 |
+| 结果诊断 | 先核对提示词与结果，再做单变量修复 |
+| 平台规格 | 查当前官方资料或界面，不沿用过期参数 |
 
-## 适合谁使用
-
-- AI 视频创作者：需要稳定、可复制的 Seedance 提示词。
-- 短剧和广告团队：需要角色、产品和场景连续性。
-- 导演与分镜师：需要把脚本转成时间轴和镜头方案。
-- 电商与品牌团队：需要产品结构保护、包装文字和品牌收束。
-- AIGC 工作流维护者：需要可校验、可迭代的 Skill 仓库。
-
-## 你想做什么，直接看这里
-
-| 你的需求 | 建议入口 |
-|---|---|
-| 了解 Skill 如何触发和工作 | [SKILL.md](./SKILL.md) |
-| 查询当前平台和版本处理 | [platform-and-versioning.md](./references/platform-and-versioning.md) |
-| 保持角色、产品和场景一致 | [directing-workflow.md](./references/directing-workflow.md) |
-| 查景别、运镜、构图和光线 | [cinematic-language.md](./references/cinematic-language.md) |
-| 套用文生视频、延长或编辑模板 | [prompt-patterns.md](./references/prompt-patterns.md) |
-| 做长视频、广告、短剧和后期 | [story-and-production.md](./references/story-and-production.md) |
-| 借鉴经典电影的摄影原则 | [film-pattern-index.md](./references/film-pattern-index.md) |
-| 诊断生成失败 | [evaluation-rubric.md](./references/evaluation-rubric.md) |
-
-## 三种工作模式
-
-### 快速模式
-
-适合单镜头、单主体或只需要一条提示词的任务。输出可复制提示词、必要默认值和关键注意事项。
-
-### 制作模式
-
-适合广告、短片、短剧、MV、多素材参考和角色一致性任务。输出创作简报、素材职责、视觉锚点、分镜、提示词、负面约束和生成顺序。
-
-### 长片段模式
-
-适合超过单次生成限制、跨场景叙事或需要拼接的项目。每段都包含入点、动作、摄影、声音、出点和下一段接力锚点。
-
-## 快速安装
-
-### 方法一：直接克隆到 Codex Skills 目录
+## 安装
 
 Windows PowerShell：
 
@@ -96,83 +42,87 @@ Windows PowerShell：
 git clone https://github.com/Youks7/KeRo-Seedance2.0.git "$env:USERPROFILE\.codex\skills\seedance-video-production"
 ```
 
-### 方法二：手动复制
-
-将仓库目录复制到：
+也可以把仓库复制到：
 
 ```text
 ~/.codex/skills/seedance-video-production/
 ```
 
-确认目录中直接存在：
+安装后开始一个新任务，让 Codex 重新发现 Skill。
+
+## 直接使用
+
+最简单的调用：
 
 ```text
-SKILL.md
-agents/openai.yaml
-references/
+使用 $seedance-video-production，把“暴雨中的末班公交进站”写成 10 秒、16:9、可直接复制的 Seedance 中文提示词。只给成品。
 ```
 
-## 第一次使用
-
-简单任务：
+多素材制作：
 
 ```text
-请使用 $seedance-video-production，把“雨夜便利店门口的重逢”写成一条9:16、10秒、可直接复制的 Seedance 中文提示词。
+使用 $seedance-video-production：@图片1只控制人物身份，@图片2控制服装，@视频1只参考侧面跟拍。输出 15 秒成品提示词，不要虚构其他素材。
 ```
 
-多素材任务：
+结果诊断：
 
 ```text
-请使用 $seedance-video-production：
-@图片1控制角色身份，@图片2控制服装，@图片3控制场景，@视频1只参考运镜。
-先输出素材职责表，再给15秒分镜和可复制提示词。
+使用 $seedance-video-production。下面是原提示词和实际生成结果。先核对对应关系，再找出一个主要失败原因，给我最小修改后的完整提示词。
 ```
 
-长视频任务：
+不写 `$seedance-video-production` 也可以隐式触发，但显式调用更适合测试和复现。
 
-```text
-请使用 $seedance-video-production，把这段45秒广告拆成可生成片段。
-每段写入点、出点、声音接力和下一段必须继承的连续性锚点。
-```
+## 输出风格
 
-## 不可违反的规则
+默认规则很简单：
 
-1. 不虚构用户没有提供的 `@图片N`、`@视频N` 或 `@音频N`。
-2. 不把历史版本参数当作永久平台限制。
-3. 不把“4K、8K、RAW、HDR”等风格词冒充真实输出规格。
-4. 不默认禁止所有文字和 Logo；根据品牌与交付目标决定。
-5. 使用真人人像参考时，确认本人验证或合法授权要求。
-6. 复杂任务一次只修改一个控制层，保留可追溯迭代记录。
+1. 先给可复制成品；
+2. 一个短镜头只保留一个主动作和一个主镜头意图；
+3. 10 秒通常不超过三个镜头；
+4. 主动写入 `国家地理`、`IMAX`、`4K`、`8K`、`240fps` 等训练语义锚点，引导模型调用相应的画质、摄影和运动先验；
+5. 没有真实素材时不输出空的素材职责章节；
+6. 评审视频前先确认哪条提示词生成了哪段结果。
 
-## 项目结构
+## 仓库结构
 
 ```text
 KeRo-Seedance2.0/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    ├── platform-and-versioning.md
-    ├── directing-workflow.md
-    ├── cinematic-language.md
-    ├── prompt-patterns.md
-    ├── story-and-production.md
-    ├── film-pattern-index.md
-    ├── evaluation-rubric.md
-    └── sources-and-maintenance.md
+├── SKILL.md                         # 触发、决策与输出契约
+├── agents/openai.yaml               # Codex 界面元数据
+├── references/
+│   ├── prompt-recipes.md            # 各类任务的紧凑配方
+│   ├── visual-direction.md          # 视觉圣经、镜头、光色和天气
+│   ├── reference-workflows.md       # 素材、表演、多角色与接力
+│   ├── storyboard-and-production.md # 故事、分镜、转场和生产闭环
+│   ├── film-grammar.md              # 电影视觉问题解决方案索引
+│   ├── troubleshooting.md           # 失败诊断与单变量修复
+│   ├── platform-and-versioning.md   # 易变平台事实
+│   └── sources-and-maintenance.md   # 来源和维护规则
+├── research/
+│   └── feishu-content-integration.md # 飞书内容审计与取舍依据
+├── evals/cases.json                 # 行为验收案例
+└── scripts/validate-skill.mjs       # 零依赖仓库校验
 ```
 
-## 精简版与完整版
+## 维护与验证
 
-- 本仓库：公开精简核心版，适合安装、分享和快速使用。
-- 完整版：私有维护仓库，包含全章节教程、完整手册索引、23部电影和138个分镜节点。
-- 两个版本共享同一核心 `SKILL.md` 设计；完整版通过 references 按需加载，不要求 Agent 一次读取全部内容。
+本地运行：
 
-## 来源与版本
+```powershell
+node scripts/validate-skill.mjs
+```
 
-本项目融合并重写了用户提供的 Seedance Skill 草案、实战教程、镜头与剧本手册和电影分镜资料。详细来源、官方核实链接和维护规则见 [sources-and-maintenance.md](./references/sources-and-maintenance.md)。
+校验器会检查 frontmatter、内部链接、界面元数据和验收案例结构。GitHub Actions 会在推送和 Pull Request 时执行同一静态检查。
 
-当前仓库不把课程中的“Seedance 2.5”直接声明为官方统一型号；模型名称与平台能力以当前官方页面和实际界面为准。
+行为改动时，同时更新 [evals/cases.json](./evals/cases.json)，再用独立 Codex 任务运行相关案例。CI 只验证案例文件的结构，不会自动判断模型输出语义。案例不是提示词模板，而是用来发现以下退化：无素材却虚构 `@引用`、简单任务输出空表格、没有核对因果就批评提示词、错误删除训练语义锚点、复杂项目缺少视觉和生产控制。
+
+## 平台事实
+
+截至仓库内标注的核实日期，字节跳动 Seed 官方资料确认 Seedance 2.0 支持文字、图片、视频和音频输入，可同时输入最多 9 张图片、3 段视频和 3 段音频，并支持 15 秒高质量多镜头音视频输出。不同产品入口可能不同，实际生成前以当前界面为准。
+
+来源和更新方法见 [sources-and-maintenance.md](./references/sources-and-maintenance.md)。
+
+飞书教程、5 份手册和 23 部电影分镜资料没有被整篇复制进 Skill；仓库只保存重新抽象的控制方法。完整取舍依据见 [飞书内容整合研究](./research/feishu-content-integration.md)。
 
 ## 关于作者
 
