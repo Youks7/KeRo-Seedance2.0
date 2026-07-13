@@ -1,21 +1,26 @@
-# 飞书资料对 Seedance Skill 的内容整合研究
+# 飞书资料对 Seedance Skill 的内容整合研究（历史审计快照）
 
 研究日期：2026-07-13
+落地复核日期：2026-07-13
 研究对象：主飞书页《Seedance 2.5实战教程》、其两个子资料库、本地完整抓取物，以及当前 `seedance-video-production` Skill。
-结论性质：内容审计与整合建议；**本报告没有修改 `SKILL.md`、`references/` 或 `evals/`**。
+结论性质：内容审计与整合建议；**原始报告撰写时没有修改 `SKILL.md`、`references/` 或 `evals/`，后续实现状态以本页“当前落地状态”和仓库文件为准。**
+
+## 当前落地状态
+
+本报告提出的四类核心增量已经进入 `plugins/kero-seedance2/skills/seedance-video-production/`：参考视频“采用 / 忽略 / 覆盖”合同、转场双端状态、风险优先项目闸门、电影视觉语法路由。当前 `evals/cases.json` 有 18 个基线案例；本报告后文保留原始论证过程，不再把“尚未路由”“建议新增 6 个 eval”等历史语句当作当前仓库状态。
 
 ## 结论先行
 
-这批飞书资料有价值，但不适合整体并入 Skill。当前 Skill 已经正确做了“短成品优先、素材职责隔离、可见因果、最小修改、平台事实单独核验”的减法重构。飞书资料真正能带来增量的，不是更多形容词、长提示词或电影名，而是四种尚未充分产品化的控制结构：
+这批飞书资料有价值，但不适合整体并入 Skill。报告撰写时，当前 Skill 已经正确做了“短成品优先、素材职责隔离、可见因果、最小修改、平台事实单独核验”的减法重构。飞书资料真正能带来增量的，不是更多形容词、长提示词或电影名，而是当时尚未充分产品化的四种控制结构：
 
 1. **参考视频的三段式作用域合同**：明确“参考什么、忽略什么、哪些目标素材优先”，防止动作参考污染身份、服装、场景和光色。
 2. **转场的双端状态合同**：不只维护连续性，还要为匹配剪辑分别设计 A 镜头出点和 B 镜头入点，并选择动作、形状、颜色、构图或声音桥作为匹配维度。
 3. **风险优先的项目验证顺序**：批量生成前先验证环境、身份、关键叙事/特效和结尾接力中的最高风险镜头；天气或复杂效果先单独测试，再扩散到多个镜头。
 4. **按叙事意图检索镜头语言**：把运镜、构图、蒙太奇和电影案例压缩成“意图 → 可见手段 → 使用条件 → 失败风险”，而不是把术语百科和 23 部影片全文塞进上下文。
 
-建议只向核心 `SKILL.md` 增加 2–3 条跨任务决策规则；其余内容放入按需参考；再新增 6 个针对性的 eval。不要把飞书原文、整套电影案例、固定平台参数或通用负面词表镜像进 Skill。
+报告当时建议只向核心 `SKILL.md` 增加 2–3 条跨任务决策规则，其余内容放入按需参考，并新增 6 个针对性 eval。上述增量现已落地；仍然不要把飞书原文、整套电影案例、固定平台参数或通用负面词表镜像进 Skill。
 
-审计结束时，工作树中已经出现三个尚未由 `SKILL.md` 路由的参考草稿：`references/film-grammar.md`、`references/storyboard-and-production.md`、`references/visual-direction.md`。它们已经覆盖电影语法索引、场景功能、核心测试镜头、双端转场、视觉圣经和天气环境反应。因而当前最重要的不是再建三个同义文件，而是：核对这些草稿、从 `SKILL.md` 正确路由它们、补上参考视频“采用/忽略/覆盖”合同，并用 eval 固化行为。
+审计结束时，工作树中曾出现三个尚未由 `SKILL.md` 路由的参考草稿：`film-grammar.md`、`storyboard-and-production.md`、`visual-direction.md`。当前版本已经完成路由、参考视频作用域合同和对应 eval；这里保留该记录用于解释当时为什么没有再创建同义文件。
 
 ## 1. 来源、完整性与访问限制
 
@@ -163,9 +168,9 @@
 
 工作树的 `references/visual-direction.md` §“视觉圣经/色彩签名”已覆盖该内容；同样需要路由而不是再建文件。
 
-## 4. 建议新增的 eval cases
+## 4. 原建议新增的 eval cases（已纳入当前基线）
 
-现有 eval 已覆盖“直接给成品、真实引用、因果对应、最小改动、语义风格词与平台事实分离”。以下 6 个案例能覆盖本次发现的真实缺口。
+报告撰写时的 eval 已覆盖“直接给成品、真实引用、因果对应、最小改动、语义风格词与平台事实分离”。以下 6 个案例用于覆盖当时发现的真实缺口，现已并入当前 18 个基线案例。
 
 ### 4.1 `reference-video-scope-isolation`
 
@@ -248,14 +253,14 @@
 
 主教程 §13–14 的 Topaz/RIFE/waifu2x 工具清单、固定 4K/ProRes/H.265 输出建议、10–16 天项目估算属于易变的后期制作建议，不是 Seedance 提示词 Skill 的稳定核心。只有用户明确询问后期流程时才单独核验当前工具和交付规格。
 
-## 6. 建议实施顺序
+## 6. 历史实施顺序与完成状态
 
-1. 先在 `evals/cases.json` 加入 4.1–4.3 三个高价值失败案例，确保新增规则不是文字装饰。
-2. 在 `SKILL.md` 的任务路由中接入现有草稿：故事/分镜/转场/项目生产 → `storyboard-and-production.md`；镜头意图/天气/光色 → `visual-direction.md`；电影视觉原则 → `film-grammar.md`。不要默认全读。
-3. 扩展 `reference-workflows.md`，补充视频样本质量和“采用/忽略/覆盖”合同；在核心多素材路径中只加一句强制作用域规则。
-4. 核对三个草稿与本报告的排除项：删除未经核验的精确电影技术数据，保持方法原创压缩，不把原例文迁入。
-5. 加入 4.4–4.6 的环境、项目闸门和电影原则 eval，确认按需引用不会污染快速提示词输出。
-6. 运行现有 `scripts/validate-skill.mjs`，并确认所有新路由存在、快速模式不会输出教程、引用的素材编号仍完全真实。
+1. 已加入 4.1–4.6 及其他回归案例，当前共 18 个。
+2. 已把故事、视觉和电影语法参考从核心 Skill 条件路由，不默认全读。
+3. 已补充视频样本质量和“采用 / 忽略 / 覆盖”合同。
+4. 已排除未经核验的精确电影技术数据和原始案例长文。
+5. 已把环境、项目闸门和电影原则加入行为验收合同。
+6. 当前使用 `python scripts/validate-repository.py` 检查 marketplace、插件、Skill、路由、链接和 eval 结构；模型输出仍使用全新 Codex 任务前向测试。
 
 ## 7. 来源索引
 
@@ -287,12 +292,12 @@
 
 ### 当前 Skill 对照
 
-- `seedance-video-production/SKILL.md`：§“工作原则”“选择任务路径”“控制复杂度”“使用可见因果”“按需读取”。
-- `seedance-video-production/references/reference-workflows.md`：§“动作与运镜参考”“多角色”“跨镜头与跨段接力”“生成顺序”。
-- `seedance-video-production/references/prompt-recipes.md`：多素材、延长、编辑与多段项目现有配方。
-- `seedance-video-production/references/troubleshooting.md`：单变量修复和反过度工程化。
-- `seedance-video-production/references/platform-and-versioning.md`：课程说法、平台事实与官方资料的隔离规则。
-- `seedance-video-production/references/film-grammar.md`：当前工作树中的电影视觉问题索引草稿。
-- `seedance-video-production/references/storyboard-and-production.md`：当前工作树中的场景功能、分镜、转场和核心测试镜头草稿。
-- `seedance-video-production/references/visual-direction.md`：当前工作树中的视觉圣经、镜头意图和天气环境反应草稿。
-- `seedance-video-production/evals/cases.json`：当前 6 个基线 eval。
+- `plugins/kero-seedance2/skills/seedance-video-production/SKILL.md`：工作原则、任务路径、控制复杂度、可见因果和按需读取。
+- `plugins/kero-seedance2/skills/seedance-video-production/references/reference-workflows.md`：素材职责、表演迁移、多角色、接力和生成顺序。
+- `plugins/kero-seedance2/skills/seedance-video-production/references/prompt-recipes.md`：多素材、延长、编辑与多段项目配方。
+- `plugins/kero-seedance2/skills/seedance-video-production/references/troubleshooting.md`：单变量修复和反过度工程化。
+- `plugins/kero-seedance2/skills/seedance-video-production/references/platform-and-versioning.md`：课程说法、平台事实与官方资料的隔离规则。
+- `plugins/kero-seedance2/skills/seedance-video-production/references/film-grammar.md`：电影视觉问题索引。
+- `plugins/kero-seedance2/skills/seedance-video-production/references/storyboard-and-production.md`：场景功能、分镜、转场和核心测试镜头。
+- `plugins/kero-seedance2/skills/seedance-video-production/references/visual-direction.md`：视觉圣经、镜头意图和天气环境反应。
+- `evals/cases.json`：当前 18 个基线 eval。

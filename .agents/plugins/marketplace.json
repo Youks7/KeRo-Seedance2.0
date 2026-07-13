@@ -1,0 +1,20 @@
+{
+  "name": "kero-seedance2-marketplace",
+  "interface": {
+    "displayName": "KeRo Seedance"
+  },
+  "plugins": [
+    {
+      "name": "kero-seedance2",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kero-seedance2"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

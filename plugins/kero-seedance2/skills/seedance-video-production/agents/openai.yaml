@@ -1,0 +1,7 @@
+interface:
+  display_name: "Seedance 视频导演与提示词"
+  short_description: "把创意和素材变成可执行的 Seedance 成品提示词与分镜方案"
+  default_prompt: "Use $seedance-video-production to turn my Seedance idea, script, or reference assets into a concise prompt or production plan."
+
+policy:
+  allow_implicit_invocation: true
