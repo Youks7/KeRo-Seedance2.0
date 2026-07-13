@@ -52,11 +52,11 @@ https://my.feishu.cn/wiki/XFU5wOG2wi7km8kzeixcQ4RnnVd
 
 平台发生变化时：
 
-1. 更新 `platform-and-versioning.md` 的核实日期；
+1. 更新 `plugins/kero-seedance2/skills/seedance-video-production/references/platform-and-versioning.md` 的核实日期；
 2. 保存官方链接；
 3. 区分即梦、豆包和 API；
 4. 删除失效的硬限制；
 5. 用当前界面复测至少一个纯文本、一个图片参考和一个多模态任务；
-6. 重新运行 Skill 校验。
+6. 运行 `python scripts/validate-repository.py` 并在全新 Codex 任务中复测行为案例。
 
 不要把课程中的“Seedance 2.5”直接改写成官方型号，除非出现可核实的官方发布或用户当前界面证据。

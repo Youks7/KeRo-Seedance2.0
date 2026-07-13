@@ -1,0 +1,39 @@
+{
+  "name": "kero-seedance2",
+  "version": "0.2.0",
+  "description": "A prompt-first Codex plugin for directing, prompting, reviewing, and troubleshooting Seedance 2.0 video projects.",
+  "author": {
+    "name": "秋水 Kero",
+    "url": "https://github.com/Youks7"
+  },
+  "homepage": "https://github.com/Youks7/KeRo-Seedance2.0",
+  "repository": "https://github.com/Youks7/KeRo-Seedance2.0",
+  "license": "MIT",
+  "keywords": [
+    "seedance",
+    "jimeng",
+    "video-generation",
+    "storyboarding",
+    "prompt-engineering"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "KeRo Seedance 2.0",
+    "shortDescription": "Seedance 成品提示词、视觉导演与多模态视频生产",
+    "longDescription": "先输出可复制的 Seedance 成品提示词，再按任务需要加载视觉导演、多模态参考、角色与产品一致性、分镜接力、音画控制和单变量故障诊断。",
+    "developerName": "秋水 Kero",
+    "category": "Productivity",
+    "brandColor": "#111827",
+    "capabilities": [
+      "Seedance 成品提示词与视觉导演",
+      "多模态素材职责与表演迁移",
+      "角色、产品与场景连续性控制",
+      "分镜接力与生成故障诊断"
+    ],
+    "defaultPrompt": [
+      "把我的创意写成可直接复制的 Seedance 中文提示词，只给成品。",
+      "根据我上传的素材生成 Seedance 分镜、素材职责和生成顺序。",
+      "核对原提示词与视频结果，再给出最小修改后的完整提示词。"
+    ]
+  }
+}
